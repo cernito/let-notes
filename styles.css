@@ -205,58 +205,68 @@ img {
 
 
   /* =========================
-   9. MOBILE OPTIMIZATION
-   (Fixes "Cramped" lists on phones)
+   9. MOBILE OPTIMIZATION (MAX WIDTH)
    ========================= */
 @media screen and (max-width: 768px) {
   
-  /* 1. Use more screen width */
+  /* 1. maximize screen usage */
   body {
-    padding: 10px 5px; /* Very small outer padding */
+    padding: 10px 0; /* Zero side padding on body */
+    overflow-x: hidden;
   }
   
+  /* 2. Make the cards go full-width */
   .sections > .sectionbox {
-    padding: 15px 12px; /* Tighter card padding */
-    border-left-width: 4px; /* Thinner accent line */
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 15px;
+    
+    border-radius: 0; /* Square corners look cleaner on full-width */
+    border-right: none; /* Remove side borders to save visual space */
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    
+    /* Keep the left accent color, but make it thinner */
+    border-left-width: 4px; 
+    
+    padding: 15px 10px; /* Very tight padding inside the card */
+    box-shadow: none; /* Remove shadow to save space */
   }
 
-  /* 2. Reduce indentation indentation */
+  /* 3. Aggressive indentation reduction */
   ul, ol {
-    padding-left: 15px; /* Save 5px per level */
+    padding-left: 12px; /* Minimal indent */
   }
-
-  /* 3. COMPACT SUB-CARDS */
-  /* Reduce padding inside the white sub-cards */
+  
+  /* 4. Flatten the sub-cards (The grey boxes inside) */
   .sectionbox li:has(> ul),
   .sectionbox li:has(> ol) {
-    padding: 8px 10px;
-    margin-top: 8px;
+    padding: 5px 0 5px 8px; /* Remove right padding entirely */
+    margin-top: 6px;
+    border: none; /* Remove border to save space */
+    border-left: 2px solid rgba(0,0,0,0.1); /* Just a line */
+    background: transparent; /* Remove background */
+    border-radius: 0;
   }
 
-  /* 4. THE "NO-CRUSH" LOGIC (Crucial!) */
-  /* If a list is nested DEEP (inside another sub-card), 
-     STOP making it a box. Just make it a clean text list. 
-     This prevents the "squished text" effect. */
-  .sectionbox li:has(> ul) li:has(> ul) {
-    background: transparent;
-    border: none;
-    padding: 0;
-    margin: 5px 0;
-    box-shadow: none;
-  }
-  
-  /* Add a simple line instead of a box for deep items */
+  /* 5. Deep nesting - Keep it linear */
   .sectionbox li:has(> ul) li:has(> ul) > ul {
-    border-left: 2px solid rgba(0,0,0,0.2);
-    padding-left: 10px;
-    margin-top: 5px;
+    border-left: 1px solid rgba(0,0,0,0.2);
+    padding-left: 8px; /* Super tight for deep lists */
+    margin-top: 4px;
   }
   
-  /* 5. Allow tables/math to scroll sideways if needed */
-  mjx-container[display="true"], table {
-    overflow-x: auto;
-    display: block;
-    max-width: 100%;
+  /* 6. Make text slightly smaller/tighter */
+  li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  
+  /* 7. Ensure images/math don't break the layout */
+  img, mjx-container[display="true"] {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 10px 0;
   }
 }
   
