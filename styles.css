@@ -86,43 +86,63 @@ p.author {
 .sections > .sectionbox:nth-child(7n+7){ --bg:#fff5f5;   --bd:#e74c3c; } /* Red Accent */
 
 /* =========================
-   5. LISTS & NESTED LOGIC
+   5. LISTS & COMPACT NESTING
    ========================= */
 ul, ol {
-  padding-left: 20px;
+  padding-left: 20px; /* Reduced default indentation */
+  margin: 5px 0;
 }
 
 li {
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
-/* Bold terms in lists should stand out */
-li strong {
-  color: #000;
-  font-weight: 700;
-}
-
-/* THE "SUB-CARD" LOGIC 
-   If a list item contains another list, turn it into a distinct block.
-   Great for definitions followed by bullet points.
-*/
-.sectionbox li:has(> ul),
-.sectionbox li:has(> ol) {
+/* --- LEVEL 1: THE BOX (Major Definitions) --- */
+/* Only apply the "Card Look" to the FIRST level of nesting */
+.sectionbox > ul > li:has(> ul),
+.sectionbox > ol > li:has(> ol) {
   background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  padding: 12px 16px;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  list-style-position: inside; /* Keeps bullet inside the box */
+  padding: 10px 14px; /* Tighter padding */
+  margin-top: 8px;
+  margin-bottom: 12px;
 }
 
-/* Remove default bullet from the parent container if it's a block */
-.sectionbox li:has(> ul) > ul,
-.sectionbox li:has(> ol) > ol {
-  margin-top: 8px;
-  padding-left: 20px;
-  border-left: 2px solid rgba(0,0,0,0.1); /* Visual guide line */
+/* --- LEVEL 2+: THE LINE (Deep details) --- */
+/* For deeper lists, DO NOT use a box. Use a simple vertical line.
+   This saves space! */
+.sectionbox li ul,
+.sectionbox li ol {
+  margin-top: 6px;
+  padding-left: 12px; /* Very tight indent */
+  border-left: 2px solid rgba(0,0,0,0.15); /* The visual guide line */
+}
+
+/* Remove bullets for these deep lists to save more space 
+   (optional - remove this block if you prefer bullets) */
+.sectionbox li ul {
+  list-style-type: none; 
+}
+.sectionbox li ul li::before {
+  content: "•";
+  color: var(--bd); /* Use the card color for the bullet */
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Make deep text slightly smaller to help it fit */
+.sectionbox li ul li,
+.sectionbox li ol li {
+  font-size: 0.96em;
+}
+
+/* Bold terms always stand out */
+li strong {
+  color: #1a252f;
+  font-weight: 700;
 }
 
 /* =========================
@@ -181,4 +201,64 @@ img {
     border: 1px solid #eee;
     background: none;
   }
+
+
+
+  /* =========================
+   9. MOBILE OPTIMIZATION
+   (Fixes "Cramped" lists on phones)
+   ========================= */
+@media screen and (max-width: 768px) {
+  
+  /* 1. Use more screen width */
+  body {
+    padding: 10px 5px; /* Very small outer padding */
+  }
+  
+  .sections > .sectionbox {
+    padding: 15px 12px; /* Tighter card padding */
+    border-left-width: 4px; /* Thinner accent line */
+  }
+
+  /* 2. Reduce indentation indentation */
+  ul, ol {
+    padding-left: 15px; /* Save 5px per level */
+  }
+
+  /* 3. COMPACT SUB-CARDS */
+  /* Reduce padding inside the white sub-cards */
+  .sectionbox li:has(> ul),
+  .sectionbox li:has(> ol) {
+    padding: 8px 10px;
+    margin-top: 8px;
+  }
+
+  /* 4. THE "NO-CRUSH" LOGIC (Crucial!) */
+  /* If a list is nested DEEP (inside another sub-card), 
+     STOP making it a box. Just make it a clean text list. 
+     This prevents the "squished text" effect. */
+  .sectionbox li:has(> ul) li:has(> ul) {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 5px 0;
+    box-shadow: none;
+  }
+  
+  /* Add a simple line instead of a box for deep items */
+  .sectionbox li:has(> ul) li:has(> ul) > ul {
+    border-left: 2px solid rgba(0,0,0,0.2);
+    padding-left: 10px;
+    margin-top: 5px;
+  }
+  
+  /* 5. Allow tables/math to scroll sideways if needed */
+  mjx-container[display="true"], table {
+    overflow-x: auto;
+    display: block;
+    max-width: 100%;
+  }
 }
+  
+}
+
