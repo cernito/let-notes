@@ -1,0 +1,184 @@
+/* =========================
+   1. GLOBAL RESET & TYPOGRAPHY
+   ========================= */
+:root {
+  --page-bg: #f4f4f9;
+  --text-main: #2c3e50;
+  --text-muted: #546e7a;
+  --font-main: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--page-bg);
+  color: var(--text-main);
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Constrain width for better readability (like a textbook page) */
+body > *, .sections {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================
+   2. HEADINGS (Title & Author)
+   ========================= */
+h1.title {
+  text-align: center;
+  color: #1a252f;
+  margin-bottom: 0.2em;
+  font-weight: 800;
+}
+
+p.author {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 20px;
+}
+
+/* =========================
+   3. SECTION BOXES (THE CARDS)
+   ========================= */
+.sections > .sectionbox {
+  --bg: #ffffff;
+  --bd: #e0e0e0;
+  
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-left: 6px solid var(--bd); /* Stronger accent on left */
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Subtle lift */
+  transition: transform 0.2s ease;
+}
+
+.sections > .sectionbox:hover {
+  transform: translateY(-2px); /* Micro-interaction when studying */
+  box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+}
+
+/* Section Headings */
+.sectionbox h2 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  color: #2c3e50;
+  font-size: 1.4rem;
+}
+
+/* =========================
+   4. COLOR CYCLING (Refined Pastels)
+   ========================= */
+.sections > .sectionbox:nth-child(7n+1){ --bg:#fff;      --bd:#3498db; } /* Blue Accent */
+.sections > .sectionbox:nth-child(7n+2){ --bg:#fcffff;   --bd:#2ecc71; } /* Green Accent */
+.sections > .sectionbox:nth-child(7n+3){ --bg:#fffafc;   --bd:#9b59b6; } /* Purple Accent */
+.sections > .sectionbox:nth-child(7n+4){ --bg:#fffbf7;   --bd:#e67e22; } /* Orange Accent */
+.sections > .sectionbox:nth-child(7n+5){ --bg:#f7fbff;   --bd:#34495e; } /* Navy Accent */
+.sections > .sectionbox:nth-child(7n+6){ --bg:#fffff9;   --bd:#f1c40f; } /* Yellow Accent */
+.sections > .sectionbox:nth-child(7n+7){ --bg:#fff5f5;   --bd:#e74c3c; } /* Red Accent */
+
+/* =========================
+   5. LISTS & NESTED LOGIC
+   ========================= */
+ul, ol {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* Bold terms in lists should stand out */
+li strong {
+  color: #000;
+  font-weight: 700;
+}
+
+/* THE "SUB-CARD" LOGIC 
+   If a list item contains another list, turn it into a distinct block.
+   Great for definitions followed by bullet points.
+*/
+.sectionbox li:has(> ul),
+.sectionbox li:has(> ol) {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  list-style-position: inside; /* Keeps bullet inside the box */
+}
+
+/* Remove default bullet from the parent container if it's a block */
+.sectionbox li:has(> ul) > ul,
+.sectionbox li:has(> ol) > ol {
+  margin-top: 8px;
+  padding-left: 20px;
+  border-left: 2px solid rgba(0,0,0,0.1); /* Visual guide line */
+}
+
+/* =========================
+   6. MATH & FORMULAS
+   ========================= */
+/* Display Math (Equations on their own line) */
+mjx-container[display="true"] {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+  overflow-x: auto;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.02);
+}
+
+/* Inline Math (Equations inside text) */
+mjx-container:not([display="true"]) {
+  background: rgba(0, 0, 0, 0.04);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 0.95em;
+  color: #c0392b; /* Slight red tint to make variables pop in text */
+}
+
+/* =========================
+   7. IMAGES
+   ========================= */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 15px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  background: #fff;
+}
+
+/* =========================
+   8. PRINT OPTIMIZATION
+   ========================= */
+@media print {
+  body { 
+    background: #fff; 
+    font-size: 11pt;
+    max-width: 100%;
+  }
+  .sections > .sectionbox {
+    break-inside: avoid;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  .sectionbox li:has(> ul) {
+    border: 1px solid #eee;
+    background: none;
+  }
+}
