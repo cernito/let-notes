@@ -82,6 +82,10 @@ body {
   padding: var(--spacing-lg) var(--spacing-md);
   transition: background-color var(--transition-normal),
               color var(--transition-normal);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 /* =========================
@@ -551,6 +555,8 @@ img:hover {
   /* Sections container */
   .sections {
     padding: 0 var(--spacing-md);
+    overflow: visible;
+    min-height: auto;
   }
   
   /* Section boxes - full width on mobile */
@@ -642,15 +648,25 @@ img:hover {
     font-size: 1em;
   }
 
-  /* Ensure no horizontal scroll */
-  body, .sections, .sectionbox {
+  /* Ensure no horizontal scroll but allow vertical */
+  .sections {
     overflow-x: hidden;
+    overflow-y: visible;
     max-width: 100vw;
+  }
+  
+  .sectionbox {
+    overflow: visible;
+    max-width: 100%;
   }
 
   /* Better touch scrolling */
-  body {
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    height: auto;
+    min-height: 100vh;
   }
 
   /* Disable hover effects on touch devices */
