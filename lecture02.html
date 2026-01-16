@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cs" xml:lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#3498db" />
+  <meta name="author" content="Tomáš Černík" />
+  <meta name="description" content="Struktura a typy lékařských přístrojů - Studijní materiály">
+  <title>Struktura a typy lékařských přístrojů</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body>
+
+<!-- Controls Panel -->
+<div class="controls-panel">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="🔍 Hledat v poznámkách..." />
+  </div>
+  <div class="controls-buttons">
+    <button class="btn" onclick="window.location.href='index.html'" title="Zpět na hlavní stránku">🏠 Domů</button>
+    <button class="btn" onclick="toggleAllSections()">Rozbalit vše</button>
+    <button class="btn" onclick="collapseAllSections()">Sbalit vše</button>
+    <button class="btn btn-icon" onclick="toggleTheme()" title="Přepnout tmavý režim">🌙</button>
+    <button class="btn btn-icon" onclick="window.print()" title="Vytisknout">🖨️</button>
+  </div>
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+</div>
+
+<header id="title-block-header">
+  <h1 class="title">Struktura a typy lékařských přístrojů</h1>
+  <p class="author">Tomáš Černík</p>
+</header>
+
+<div class="sections">
+<section id="co-je-lékařský-přístroj" class="sectionbox">
+<h2>Co je lékařský přístroj?</h2>
+<p>Elektronické lékařské přístroje jsou technická zařízení, která: -
+Využívají elektrické, elektronické nebo elektromagnetické principy -
+Slouží k diagnostice, terpaii, chirurgii nebo náhradě funkcí orgánů</p>
+</section>
+<section id="základní-rozdělení-podle-účelu" class="sectionbox">
+<h2>Základní rozdělení podle účelu:</h2>
+<ul>
+<li>Diagnostické systémy
+<ul>
+<li>Slouží k měření a sledování životnách funkcí + získávání info o
+zdravotním stavu</li>
+<li>EKG, EMG, tonometry</li>
+<li>Energie jde od pacienta k přístroji</li>
+</ul></li>
+<li>Terpateutické systémy
+<ul>
+<li>Slouží k aktivnímu ovliv%nování stavu pacienta</li>
+<li>Kardiostimulátor, radioterapie</li>
+<li>Energie jde od přístroje k pacientovi</li>
+</ul></li>
+<li>Chirurgické systémy
+<ul>
+<li>Při operačních zákrocích</li>
+<li>Anestezie, laserové systémy, ultrazvuková chirurgie</li>
+</ul></li>
+<li>Podpora a náhrady orgánůů
+<ul>
+<li>Nahrazují nebo podporují funkci člověka</li>
+<li>Naslouchadla, kochleární implantáty</li>
+</ul></li>
+</ul>
+</section>
+<section id="klasifikace-biomedicínských-přístrojů" class="sectionbox">
+<h2>Klasifikace biomedicínských přístrojů:</h2>
+<ul>
+<li>Podle měřené veličny:
+<ul>
+<li>Tlak</li>
+<li>Průtok</li>
+<li>Teplota</li>
+<li>Elektrické signály</li>
+</ul></li>
+<li>Podle principu snímání:
+<ul>
+<li>Rezistivní</li>
+<li>Kapacitní</li>
+<li>Induktivní</li>
+<li>Ultrazvukové</li>
+<li>Elektrochemické</li>
+</ul></li>
+<li>Podle orgánového systému:
+<ul>
+<li>Kardiovaskulární</li>
+<li>Respirační</li>
+<li>Endokrinní</li>
+<li>Nervový</li>
+</ul></li>
+</ul>
+</section>
+<section id="způsoby-měření" class="sectionbox">
+<h2>Způsoby měření</h2>
+<ul>
+<li>Přímé měření
+<ul>
+<li>Měříme přímou pořadovanou veličinu</li>
+<li>Teplota teploměrem</li>
+<li>Výhoda: jednoduchost</li>
+<li>Nevýhoda: Často invazivní nebo nepřesné</li>
+</ul></li>
+<li>Nepřímé měření
+<ul>
+<li>Měříme jinou veličinu, ze které výsledek vypočítáme</li>
+<li>Krevní tlak, laserové měření vzdálenosti</li>
+</ul></li>
+<li>Komparativní měření
+<ul>
+<li>Porovnání se známou hodnotou - cílem je to , aby rozdíl mezi měřenou
+a známou hodnotou byl nulový</li>
+</ul></li>
+</ul>
+</section>
+<section id="vyhodnocení-měření" class="sectionbox">
+<h2>Vyhodnocení měření</h2>
+<ul>
+<li>Střední hodnota - typická hodnota: <span
+class="math display">\[\mathrm{\overline{X}=\frac{1}{N} \sum
+X_i}\]</span></li>
+<li>Medián:
+<ul>
+<li>Prostření hodnota, která je odolná vůči extrémům</li>
+</ul></li>
+<li>Modus:
+<ul>
+<li>Nejčastější hodnota</li>
+</ul></li>
+<li>Variabilita měření
+<ul>
+<li>Rozptyl = míra rozptýlení hodnot kolem průměru</li>
+<li>Směrodatná odchylka = prakticy používaná míra variability</li>
+<li>Standardtná chyba = vyjadřuje nejistotu průměru</li>
+</ul></li>
+</ul>
+</section>
+<section id="chyby-měření" class="sectionbox">
+<h2>Chyby měření</h2>
+<ul>
+<li>Systematická chyba
+<ul>
+<li>Stálá, daná metodou nebo přístrojem - nelze ji odstranit
+statisticky</li>
+<li>MAP</li>
+</ul></li>
+<li>Náhodná chyba
+<ul>
+<li>Proměnlivá, způsobená rušením - lze změnit opakováním</li>
+</ul></li>
+</ul>
+</section>
+<section id="charakteristiky-lékařských-přístrojů" class="sectionbox">
+<h2>Charakteristiky lékařských přístrojů</h2>
+<ul>
+<li><p>Soubor parametrů umožňující vzájemně srovnávat jednotlivé
+přístroje a kvantifikovat jejich vlastnosti</p></li>
+<li><p><strong>Statistické parametry</strong> - popisují chování systému
+pro stejnosměrné nebo velmi pomalu se měnící vstupní veličiny</p>
+<ul>
+<li><strong>Přesnost</strong> - jak blízko je výsledek ke skutečné
+hodnotě</li>
+<li><strong>Rozptyl</strong> - schopnost přístroje při opakovaném měření
+vracet pro stejnou vstupní veličinu stejný nebo alespoň velmi podobný
+výsledek</li>
+<li><strong>Chyba měření</strong> - rozdíl mezi naměřenou a skutečnou
+hodnotou - např. <span class="math inline">\(\pm1~\%\)</span> z
+naměřeného údaje</li>
+<li><strong>Rozlišení přístroje</strong> - počet číslic, které přístroj
+zobrazuje (přístroj, který zobrazí naměřený údaj 2,3456 V má větší
+rozlišení než přístroj, který zobrazí 2,35 V) - první rozlušuje změnu
+0,0001 V - přístrojj 1 dokáže zobrazit menší změny napětí</li>
+<li><strong>Rozlišení a citlivost</strong> - nejmenší změna vstupní
+veličny, kterou přístroj dokáže zaznamenat, např. u A/D převodníku 1 LSB
+- od jak malé změny už se výstup změní</li>
+<li><strong>Reprodukovatelnost</strong> - schopnost přístroje naměřit v
+různém čase při stejném vstupu stejnou hodnotu</li>
+<li><strong>Lineární přenosová funkce</strong> - mezi vstupem a výstupem
+platí vztah <span class="math inline">\(y=ax + b\)</span>, přičemž <span
+class="math inline">\(a\)</span> je směrnie (citlivost) a <span
+class="math inline">\(b\)</span> je posun
+<ul>
+<li><strong>Stejnosměrný posun</strong> - i když je vstup nulový, výstup
+nulový nebude = aditivní chyba
+<ul>
+<li>při měření teploty teploměr vždy o 1 stupeň</li>
+</ul></li>
+<li><strong>Změna citlivosti</strong>
+<ul>
+<li>Jak moc se mění výstup při změně vstupu</li>
+<li>Drift citlivosti = <span class="math inline">\(a\)</span> se mění v
+čase a přístroj zesiluje jinak, než má = multiplikativní chyba <span
+class="math display">\[y = (a + \Delta a) \cdot x\]</span></li>
+</ul></li>
+<li><strong>Linearita</strong>
+<ul>
+<li>Linearita přístroje znamená, že jeho přenosová funkce spl%nuje
+podmínky aditivity a homogenity, tedy že výtup je úměrný vstupu</li>
+<li>nechť platí: <span class="math display">\[\begin{align}
+  y_1 = f(x_1) \\
+  y_2 = f(x_2)\end{align}\]</span></li>
+<li>Systém je lineární, pokud platí podmínka additivity <span
+class="math inline">\(y_1 + y_2 = f(x_1 + x_2)\)</span> a homogenity
+<span class="math inline">\(K \cdot y_1 = f(K \cdot x_1)\)</span> a
+pokud tohle platí, přenosová funkce má tvar: <span
+class="math inline">\(y = a \cdot x + b\)</span></li>
+<li>Linearita je důležitá u lékařských přístrojů, protože umožňuje
+jednoduchou kalibraci a správnou interpretaci</li>
+</ul></li>
+<li><strong>Vstupní rozsah</strong>
+<ul>
+<li>Rozsah hodnot vstupní veličiny, které může přístroj přijmout bez
+poškození a bez ztráty funkčnosti</li>
+</ul></li>
+<li><strong>Dynamický rozsah</strong>
+<ul>
+<li>Rozsah hodnot vstupu, ve kterém je přístroj schopen měřit se
+specifikovaným parametry (s danou přesností, šumem, apod.) - vstupní
+rozsah: <span class="math inline">\(\mathrm{\pm 5~mV}\)</span></li>
+</ul></li>
+<li><strong>Vstupní impedance</strong>
+<ul>
+<li>jak moc přístroj zatěžuje měřený systém</li>
+<li>Ideální měření = přístroj neovliňuje měřený systém</li>
+<li>V medicíně měříme:
+<ul>
+<li>tlak</li>
+<li>průtok</li>
+<li>…</li>
+<li>Proto zobecněná impedance, neměříme jen elektriku</li>
+</ul></li>
+<li>Veličina typu úsilí
+<ul>
+<li>Tlačí, nutí a sama o sobě neznamená pohzb = napětí, síla, tlak</li>
+</ul></li>
+<li>Veličina typu flow
+<ul>
+<li>Vyjadřuje pohyb, děj = proud, rzchlost</li>
+<li>Jejich součin dává výkon - <span class="math inline">\(P = X_{d1}
+\cdot X_{d2}\)</span> Výkon = kolik energie za jednotku času odebereme
+ye systému (např. <span class="math inline">\(\mathrm{P = U \cdot
+I}\)</span>)</li>
+<li>Měřené veličiny se často mění v čase a mají harmonický průběh, proto
+impedanci definujeme jako podíl fázorů: <span class="math inline">\(Z =
+\frac{X_{d1}}{X_{d2}}\)</span></li>
+<li><span class="math inline">\(P=X_{d1} \cdot
+{X_{d2}}=\frac{X_{d1}^2}{Z}=Z \cdot X_{d2}^2\)</span></li>
+</ul></li>
+<li>Pokud měřím veličinu typu úsilí, tak čím větší impedance, tím menší
+výkon a při veličině typu flow je to naopak</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p><strong>Dynamické parametry</strong></p>
+<ul>
+<li>popisují chování při změnách vstupu v čase</li>
+<li>pouze ve vyjímečných případech jsou biologické signály stejnosměrné
+nebo jen velmi pomalu se měnící (např. tělesná teplota), obvzkle jsou to
+signály se spektrem frekenci od jednotek do desítek Hz</li>
+<li>časové závislosti mezi vstupní a výstupní veličinou popisujeme
+pomocí přenosových charakteristik</li>
+<li>vztah mezi vstupné veličinou a výstupem ve frekvenční (operátorové)
+oblasti popsuje přenosová funkce</li>
+<li>Přenosové charakteristiky:<span class="math display">\[
+\begin{aligned}
+P(p) &amp;= \frac{Y(p)}{X(p)} \\
+P(p) &amp;\ldots \text{přenosová funkce v Laplaceově oblasti} \\
+&amp;\ldots \text{popisuje časově invariantní systém} \\
+X(p) &amp;\ldots \text{obraz vstupu} \\
+Y(p) &amp;\ldots \text{obraz výstupu} \\
+\end{aligned}
+\]</span></li>
+<li><strong>Impulsní charakteristika w(t)</strong>
+<ul>
+<li>časový průbeh výstupu systému po působení jednotkového impulsu na
+vstupu - Diracova</li>
+<li>Diracův impulz = nekonečně krátký a nekonečně vysoký, který má
+jednotkovou plochu <span class="math display">\[w(t) = \mathcal{L}^{-1}
+\left\{P(p)\right\}\]</span></li>
+<li>Jak rychle systém reaguje</li>
+</ul></li>
+<li><strong>Přechodová charakteristika</strong>
+<ul>
+<li>časový průběh výstupu po náhlé změně vstupu na jednotkový skok:
+<span class="math display">\[
+a(t) = \mathcal{L}^{-1}\left\{\frac{P(p)}{p}\right\}
+\]</span></li>
+<li>jednotkový skok = náhlá změna vstupu z 0 na 1 a reprezentuje zapnutí
+signálu</li>
+<li>jednotkový skok: <span class="math display">\[I(t) =
+\int_0^t\delta(\tau)~dr\]</span></li>
+<li>Přechodová charakteristika je integrál impulsní charakteristiky</li>
+</ul></li>
+<li>Př: u EKG zesilovače - pokud je impulsní charakteristika příliš
+široká, tak se rozmaže QRS, pokud je pomalá přechodová char. zpoždění
+detekce</li>
+<li>Přenosová funkce <span
+class="math display">\[P(j\omega)=\frac{Y(jw)}{X(j\omega)}\]</span></li>
+<li>jak systém mění amplitudu a fázi signálu v závislosti na
+frekvenci</li>
+</ul></li>
+</ul>
+</section>
+<section id="obecné-schéma-lékařského-přístroje" class="sectionbox">
+<h2>Obecné schéma lékařského přístroje</h2>
+<ul>
+<li>Diagnostické <span class="math inline">\(\times\)</span>
+Terapeutické</li>
+<li><strong>Diagnostické</strong>
+<ul>
+<li>Slouží k monitorování životních funkcí</li>
+<li>Transport signálu (energie) je převážně od sledovaných životních
+funkcí pacienta</li>
+<li>Signály jsou velmi malé a zdroj má vnitřní velký odpor</li>
+<li>EEG, EKG <img src="diagnosticke_pristroje.png"
+alt="Diagnosticke pristroje" /></li>
+<li><strong>Zdroj</strong> - napájí celý systém</li>
+<li><strong>Pacient</strong></li>
+<li><strong>Snímač</strong> převádí neelektrickou veličinu na elektrický
+signál (elektrody, tlakový senzor) a ovlivňuje ho přesnost, šum</li>
+<li><strong>Kalibrace</strong> - zajišťuje, že výstup odpovídá správným
+fyzikálním jednotkám - koriguje offset a citlivost</li>
+<li><strong>Zesilovač</strong> - biologické signály jsou v řádu <span
+class="math inline">\(\mathrm{\mu V}\)</span> nebo <span
+class="math inline">\(\mathrm{mV}\)</span>, tudíž je zesiluje na úroveň
+vhodnou pro A/D převodník</li>
+<li><strong>A/D</strong> - převádí analogový signál na digitální - má
+nějaké rozlišení, vzorkovací frekvenci - nejsou vlnky, ale čísla</li>
+<li><strong>Zpracování signálu</strong> - digitální filtrace a výpočty -
+tady vznikají parametry pro lékaře - tepová frekvence</li>
+<li><strong>Řídící jednotka</strong> - řídí celý stroj a synchroniyuje
+měření, zpracování, kalibraci a komunikaci</li>
+<li><strong>Uchování dat</strong> - typicky je to interní paměť</li>
+<li><strong>Přenos dat</strong> - přenos na PACS</li>
+</ul></li>
+</ul>
+</section>
+</div>
+
+
+<script>
+// Detect if user is on mobile
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+// Add collapsible class to all sectionboxes
+document.querySelectorAll('.sectionbox').forEach(box => {
+  box.classList.add('collapsible');
+});
+
+// Theme Toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const currentTheme = html.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  
+  const btn = event.target.closest('.btn-icon');
+  if (btn) {
+    btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  }
+  
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) {
+    metaTheme.content = newTheme === 'dark' ? '#1a1d23' : '#3498db';
+  }
+}
+
+// Load saved theme
+(function() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  const themeBtn = document.querySelector('.btn-icon');
+  if (themeBtn && savedTheme === 'dark') {
+    themeBtn.textContent = '☀️';
+  }
+  
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) {
+    metaTheme.content = savedTheme === 'dark' ? '#1a1d23' : '#3498db';
+  }
+})();
+
+// Collapsible sections with touch optimization
+document.querySelectorAll('.sectionbox.collapsible > h2').forEach(header => {
+  header.addEventListener('click', function(e) {
+    e.preventDefault();
+    this.parentElement.classList.toggle('collapsed');
+    updateProgress();
+    
+    if (isMobile && !this.parentElement.classList.contains('collapsed')) {
+      setTimeout(() => {
+        this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  });
+  
+  header.addEventListener('touchstart', function(e) {
+    this.style.webkitUserSelect = 'none';
+    this.style.userSelect = 'none';
+  });
+});
+
+function toggleAllSections() {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.remove('collapsed');
+  });
+  updateProgress();
+}
+
+function collapseAllSections() {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.add('collapsed');
+  });
+  updateProgress();
+  
+  if (isMobile) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+// Search functionality
+const searchInput = document.getElementById('searchInput');
+let searchTimeout;
+
+searchInput.addEventListener('input', function() {
+  clearTimeout(searchTimeout);
+  const delay = isMobile ? 400 : 300;
+  
+  searchTimeout = setTimeout(() => {
+    const query = this.value.toLowerCase().trim();
+    const sections = document.querySelectorAll('.sectionbox');
+    let firstMatch = null;
+    
+    sections.forEach(section => {
+      section.classList.remove('highlight');
+      
+      if (query === '') {
+        section.style.display = '';
+        return;
+      }
+      
+      const text = section.textContent.toLowerCase();
+      if (text.includes(query)) {
+        section.style.display = '';
+        section.classList.add('highlight');
+        section.classList.remove('collapsed');
+        if (!firstMatch) firstMatch = section;
+      } else {
+        section.style.display = 'none';
+      }
+    });
+    
+    if (isMobile && firstMatch && query !== '') {
+      setTimeout(() => {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+    
+    updateProgress();
+  }, delay);
+});
+
+if (isMobile) {
+  document.addEventListener('touchstart', function(e) {
+    if (!searchInput.contains(e.target) && searchInput.value === '') {
+      searchInput.blur();
+    }
+  });
+}
+
+// Progress tracking
+function updateProgress() {
+  const sections = document.querySelectorAll('.sectionbox.collapsible');
+  const expanded = document.querySelectorAll('.sectionbox.collapsible:not(.collapsed)');
+  const percentage = (expanded.length / sections.length) * 100;
+  document.getElementById('progressBar').style.width = percentage + '%';
+}
+
+// Scroll progress indicator
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+  }, isMobile ? 50 : 0);
+}, { passive: true });
+
+// Initialize
+updateProgress();
+
+// Auto-collapse all sections on mobile
+if (isMobile) {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.add('collapsed');
+  });
+  updateProgress();
+}
+
+// Keyboard shortcuts (desktop only)
+if (!isMobile) {
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      searchInput.focus();
+    }
+    
+    if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+      e.preventDefault();
+      toggleTheme();
+    }
+  });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+if ('vibrate' in navigator && isMobile) {
+  document.querySelectorAll('.sectionbox.collapsible > h2').forEach(header => {
+    header.addEventListener('click', function() {
+      navigator.vibrate(10);
+    });
+  });
+}
+
+if (isMobile) {
+  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+    document.documentElement.style.setProperty('--transition-fast', '0ms');
+    document.documentElement.style.setProperty('--transition-normal', '0ms');
+    document.documentElement.style.setProperty('--transition-slow', '0ms');
+  }
+}
+</script>
+
+</body>
+</html>

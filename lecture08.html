@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cs" xml:lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#3498db" />
+  <meta name="author" content="Tomáš Černík" />
+  <meta name="description" content="**Kardiostimulátory** - Studijní materiály">
+  <title>**Kardiostimulátory**</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body>
+
+<!-- Controls Panel -->
+<div class="controls-panel">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="🔍 Hledat v poznámkách..." />
+  </div>
+  <div class="controls-buttons">
+    <button class="btn" onclick="window.location.href='index.html'" title="Zpět na hlavní stránku">🏠 Domů</button>
+    <button class="btn" onclick="toggleAllSections()">Rozbalit vše</button>
+    <button class="btn" onclick="collapseAllSections()">Sbalit vše</button>
+    <button class="btn btn-icon" onclick="toggleTheme()" title="Přepnout tmavý režim">🌙</button>
+    <button class="btn btn-icon" onclick="window.print()" title="Vytisknout">🖨️</button>
+  </div>
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+</div>
+
+<header id="title-block-header">
+  <h1 class="title">**Kardiostimulátory**</h1>
+  <p class="author">Tomáš Černík</p>
+</header>
+
+<div class="sections">
+<ul>
+<li><p>implantabilní lékařský přístroj, jehož úkolem je upravit nebo
+nahradit vlastní srdeční rytmus, pokud je porušený</p></li>
+<li><p>Používají se dlouhodobě, jsou implantované pod kůži (nejčastěji v
+oblasti klíční kosti) a se srdcem jsou spojeny pomocí stimulačních
+elektrod</p></li>
+<li><p>T<strong>ypické indikace:</strong></p></li>
+<li><p>Symptomatické bradykardie</p></li>
+<li><p>Poruchy převodního systému</p></li>
+<li><p>Stavy po infarktu</p></li>
+<li><p><strong>Rozdělení kardiostimulátorů</strong></p></li>
+<li><p><strong>Podle doby stimulace:</strong></p></li>
+<li><p>Dočasné</p></li>
+<li><p>Implantibilní</p></li>
+<li><p><strong>Podle způsobu podráždění</strong></p></li>
+<li><p>Přímé</p></li>
+<li><p>Nepřímé</p></li>
+<li><p><strong>Podle funkce:</strong></p></li>
+<li><p>Asynchronní</p></li>
+<li><p>Synchronní</p></li>
+<li><p>Programovatelné</p></li>
+<li><p><strong>Podle počtu stimulovaných dutin:</strong></p></li>
+<li><p>Jednodutinové</p></li>
+<li><p>Dvoudutinové</p></li>
+<li><p><strong>Podle typu elektrod:</strong></p></li>
+<li><p>Unipolární, bipolární</p></li>
+<li><p><strong>Podle napájení</strong></p></li>
+<li><p>Bateriáové</p></li>
+<li><p>Vysokofrekvečně dobíjené</p></li>
+<li><p><strong>NASPE/NPEG kód</strong></p></li>
+<li><p>Jednoznačně popisuje funkci stimulátoru</p></li>
+<li><p><strong>5</strong> <strong>znaků</strong></p></li>
+<li><p>1 – místo stimulace</p></li>
+<li><p>A – síň, V – komora, D – obojí, O – žádné</p></li>
+<li><p>2 – místo snímání</p></li>
+<li><p>A – síň, V – komora, D – obojí, O – žádné</p></li>
+<li><p>3 – Reakce na snímaný signál</p></li>
+<li><p>I – inhibice, T – trigger, D – obojí, O – žádná</p></li>
+<li><p>4 – adaptace/programovatelnost</p></li>
+<li><p>P – programovatelný, M – multiprogramovatelný</p></li>
+<li><p>C – komunikovatelný, R – frekvenčně adaptibilní</p></li>
+<li><p>5 – antiarytmická funkce</p></li>
+<li><p>P – antitachykardická stimulace, S – šok, D – obojí</p></li>
+<li><p>V praxi se spíš používají 3 znaky</p></li>
+<li><p>Př: VOO – komorový asynchronní, VVI – komorový inhibovaný, AAI –
+síňový inhibovaný</p></li>
+<li><p>Komorový inhibovaný snímá QRS komplex a sleduje R-R
+interval</p></li>
+<li><p><strong>Asynchronní kardiostimulátor</strong></p></li>
+<li><p>Konstrukčně jednodušší</p></li>
+<li><p>Generátor s frekvencí 1 Hz a šířka 1.2-1.5 ms</p></li>
+<li><p>Při blokádě AV uzlu</p></li>
+<li><p>Dnes se nepoužívají</p></li>
+<li><p><strong>Synchronní R inhibovaný stimulátor</strong></p></li>
+<li><p>Př: VVI</p></li>
+<li><p>Snímá QRS komplex a sledujeR-R interval</p></li>
+<li><p>pokud je překročena zvolená doba, je generován stimulační impuls,
+v opačném případě je impuls potlačen</p></li>
+</ul>
+<figure>
+<img src="media/image1.png" style="width:6.3in;height:3.18472in"
+alt="Obsah obrázku diagram, skica, Plán, Technický výkres Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku diagram, skica, Plán,
+Technický výkres Obsah generovaný pomocí AI může být
+nesprávný.</figcaption>
+</figure>
+<ul>
+<li><p>Elektrody snímají intrakardiální EKG (velmi malé napětí)</p></li>
+<li><p>Zesilovač R vlny – zesiluje hlavně QRS komplex</p></li>
+<li><p>Filtr – omezuje rušení a zvíazňuje frekvenční pásmo QRS
+komplexu</p></li>
+<li><p>Test R-R intervalu -měří čas mezi dvěma po sobě jdoucími R vlnami
+a porovnává ho s nastavenou minimální periodou</p></li>
+<li><p>Obvod refrakterní doby – po detekci R-vlny se na určitou dobu
+zablokuje snímání, tudíž ignoruje T-vlnu – zabránění falešné
+detekci</p></li>
+<li><p>Generátor – impuls</p></li>
+<li><p>Koncový stupeň – výstupní zesilovač – zajistí bezpečný přenos
+energie do myokardu</p></li>
+<li><p><strong>Synchronní stand-by stimulátor</strong></p></li>
+<li><p>Reaguje na každou R vlnu, ale ne proto, aby srdce stimuloval, ale
+aby hlídal rytmus a byl v pohotovosti</p></li>
+<li><p>Synchronní stand-by stimulátor typu VVT je spouštěn každou R
+vlnou, přičemž stimulační impuls zapadá do absolutně refrakterní fáze
+QRS komplexu a nevyvolá další kontrakci. Při poklesu spontánní srdeční
+frekvence pod nastavenou mez začne stimulátor aktivně stimulovat.
+Výhodou je omezení interference rytmů, nevýhodou vyšší spotřeba
+energie.</p></li>
+<li><p><strong>Programovatelně a frekvenčně adaptabilní
+stimulátory</strong></p></li>
+<li><p>Moderní kardiostimulátory umožňují:</p></li>
+<li><p>Měnit parametry stimulace po implantaci</p></li>
+<li><p>Obousměrnou komunikaci</p></li>
+<li><p>Adaptaci frekvence podle fyzické zátěže pacienta</p></li>
+<li><p>Pro adaptaci se používají senzory:</p></li>
+<li><p>Teplota krve, dechová frekvence, mechanické vibrace těla</p></li>
+</ul>
+<section id="realizace-kardiostimulátoru" class="sectionbox">
+<h2>Realizace kardiostimulátoru</h2>
+<ul>
+<li><p>Ze 3 částí:</p></li>
+<li><p><strong>Elektronická</strong> – generátor impulzů, snímací
+obvody, vyhodnocení</p></li>
+<li><p><strong>Stimulační elektrody</strong></p></li>
+<li><p><strong>Externí programátor</strong></p></li>
+<li><p>Tělo stimulátoru je hermeticky uzavřené titanové pouzdro</p></li>
+<li><p><strong>Výstupní parametry</strong>:</p></li>
+<li><p><strong>Amplituda</strong> – 0.8-5 V</p></li>
+<li><p><strong>Šířka</strong> – 0.05 – 1.5 ms</p></li>
+<li><p><strong>Elektrody</strong>:</p></li>
+<li><p><strong>Bipolární</strong> – dvě elektrody na vodiči</p></li>
+<li><p><strong>Unipolární</strong> – jedna na vodiči a druhá na
+pouzdru</p></li>
+<li><p><strong>Fixace</strong>:</p></li>
+<li><p><strong>Aktivní</strong></p></li>
+<li><p><strong>Pasivní</strong></p></li>
+<li><p><strong>Simulační elektroda</strong> – tvoří ji komplet
+obsahující vlastní elektrodu, propojovací vodiče s izolací a konektor –
+plocha 8-12 mm^2 s aktivní nebo pasivní fixací – často pórovitá
+elektroda s dutinou vyplněnou kortikosteroidem</p></li>
+<li><figure>
+<img src="media/image2.png" style="width:3.13479in;height:2.27571in"
+alt="Obsah obrázku text, diagram, snímek obrazovky, skica Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku text, diagram, snímek
+obrazovky, skica Obsah generovaný pomocí AI může být
+nesprávný.</figcaption>
+</figure></li>
+<li><p><strong>Napájení</strong>:</p></li>
+<li><p>Požadovaná životnost – 10 let</p></li>
+<li><p>Dnes Li-ionové baterie – 0.8-3 Ah, 2.8 V</p></li>
+</ul>
+</section>
+</div>
+
+
+<script>
+// Detect if user is on mobile
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+// Add collapsible class to all sectionboxes
+document.querySelectorAll('.sectionbox').forEach(box => {
+  box.classList.add('collapsible');
+});
+
+// Theme Toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const currentTheme = html.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  
+  const btn = event.target.closest('.btn-icon');
+  if (btn) {
+    btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  }
+  
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) {
+    metaTheme.content = newTheme === 'dark' ? '#1a1d23' : '#3498db';
+  }
+}
+
+// Load saved theme
+(function() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  const themeBtn = document.querySelector('.btn-icon');
+  if (themeBtn && savedTheme === 'dark') {
+    themeBtn.textContent = '☀️';
+  }
+  
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) {
+    metaTheme.content = savedTheme === 'dark' ? '#1a1d23' : '#3498db';
+  }
+})();
+
+// Collapsible sections with touch optimization
+document.querySelectorAll('.sectionbox.collapsible > h2').forEach(header => {
+  header.addEventListener('click', function(e) {
+    e.preventDefault();
+    this.parentElement.classList.toggle('collapsed');
+    updateProgress();
+    
+    if (isMobile && !this.parentElement.classList.contains('collapsed')) {
+      setTimeout(() => {
+        this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  });
+  
+  header.addEventListener('touchstart', function(e) {
+    this.style.webkitUserSelect = 'none';
+    this.style.userSelect = 'none';
+  });
+});
+
+function toggleAllSections() {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.remove('collapsed');
+  });
+  updateProgress();
+}
+
+function collapseAllSections() {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.add('collapsed');
+  });
+  updateProgress();
+  
+  if (isMobile) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+// Search functionality
+const searchInput = document.getElementById('searchInput');
+let searchTimeout;
+
+searchInput.addEventListener('input', function() {
+  clearTimeout(searchTimeout);
+  const delay = isMobile ? 400 : 300;
+  
+  searchTimeout = setTimeout(() => {
+    const query = this.value.toLowerCase().trim();
+    const sections = document.querySelectorAll('.sectionbox');
+    let firstMatch = null;
+    
+    sections.forEach(section => {
+      section.classList.remove('highlight');
+      
+      if (query === '') {
+        section.style.display = '';
+        return;
+      }
+      
+      const text = section.textContent.toLowerCase();
+      if (text.includes(query)) {
+        section.style.display = '';
+        section.classList.add('highlight');
+        section.classList.remove('collapsed');
+        if (!firstMatch) firstMatch = section;
+      } else {
+        section.style.display = 'none';
+      }
+    });
+    
+    if (isMobile && firstMatch && query !== '') {
+      setTimeout(() => {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+    
+    updateProgress();
+  }, delay);
+});
+
+if (isMobile) {
+  document.addEventListener('touchstart', function(e) {
+    if (!searchInput.contains(e.target) && searchInput.value === '') {
+      searchInput.blur();
+    }
+  });
+}
+
+// Progress tracking
+function updateProgress() {
+  const sections = document.querySelectorAll('.sectionbox.collapsible');
+  const expanded = document.querySelectorAll('.sectionbox.collapsible:not(.collapsed)');
+  const percentage = (expanded.length / sections.length) * 100;
+  document.getElementById('progressBar').style.width = percentage + '%';
+}
+
+// Scroll progress indicator
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+  }, isMobile ? 50 : 0);
+}, { passive: true });
+
+// Initialize
+updateProgress();
+
+// Auto-collapse all sections on mobile
+if (isMobile) {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.add('collapsed');
+  });
+  updateProgress();
+}
+
+// Keyboard shortcuts (desktop only)
+if (!isMobile) {
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      searchInput.focus();
+    }
+    
+    if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+      e.preventDefault();
+      toggleTheme();
+    }
+  });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+if ('vibrate' in navigator && isMobile) {
+  document.querySelectorAll('.sectionbox.collapsible > h2').forEach(header => {
+    header.addEventListener('click', function() {
+      navigator.vibrate(10);
+    });
+  });
+}
+
+if (isMobile) {
+  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+    document.documentElement.style.setProperty('--transition-fast', '0ms');
+    document.documentElement.style.setProperty('--transition-normal', '0ms');
+    document.documentElement.style.setProperty('--transition-slow', '0ms');
+  }
+}
+</script>
+
+</body>
+</html>

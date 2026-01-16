@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cs" xml:lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#3498db" />
+  <meta name="author" content="Tomáš Černík" />
+  <meta name="description" content="**Zesilovače biologických signálů** - Studijní materiály">
+  <title>**Zesilovače biologických signálů**</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body>
+
+<!-- Controls Panel -->
+<div class="controls-panel">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="🔍 Hledat v poznámkách..." />
+  </div>
+  <div class="controls-buttons">
+    <button class="btn" onclick="window.location.href='index.html'" title="Zpět na hlavní stránku">🏠 Domů</button>
+    <button class="btn" onclick="toggleAllSections()">Rozbalit vše</button>
+    <button class="btn" onclick="collapseAllSections()">Sbalit vše</button>
+    <button class="btn btn-icon" onclick="toggleTheme()" title="Přepnout tmavý režim">🌙</button>
+    <button class="btn btn-icon" onclick="window.print()" title="Vytisknout">🖨️</button>
+  </div>
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+</div>
+
+<header id="title-block-header">
+  <h1 class="title">**Zesilovače biologických signálů**</h1>
+  <p class="author">Tomáš Černík</p>
+</header>
+
+<div class="sections">
+<ul>
+<li><p>Typicky mají signály velmi malé amplitudy a jsou snadno
+rušitelné</p></li>
+<li><p>Příklady:</p></li>
+<li><p>EKG – amplituda 0.5-5 mV</p></li>
+<li><p>EEG – amplituda řádově mikrovolty</p></li>
+<li><p>EMG – amplituda 0.1-10 mV</p></li>
+</ul>
+<section id="požadavky-na-zesilovače" class="sectionbox">
+<h2>Požadavky na zesilovače</h2>
+<ul>
+<li><p>Dostatečné zesílení</p></li>
+<li><p>Potlačení souhlasného signálu</p></li>
+<li><p>Rušení, které se objeví stejně na obou vstupech (síťové)</p></li>
+<li><p>Vysoký vstupní odpor</p></li>
+<li><p>Aby zesilovač nezatěžoval zdroj signálu a neovlivnil
+měření</p></li>
+<li><p>Požadovaný frekvenční rozsah</p></li>
+<li><p>Odolnost proti rušení</p></li>
+<li><p>Odolnost proti špatnému připojení elektrod</p></li>
+</ul>
+</section>
+<section id="operační-zesilovač-základní-prvek" class="sectionbox">
+<h2>Operační zesilovač – základní prvek</h2>
+<ul>
+<li><p>Univerzální integrovaný zesilovač</p></li>
+<li><p>Má dva vstupy – invertující a neinvertující</p></li>
+<li><p>Jeden výstup</p></li>
+<li><p>Pracuje se zpětnou vazbou</p></li>
+<li><p>Je napájen nejčastěji symetrickým napětím +- Ucc</p></li>
+<li><p><strong>Ideální operační zesilovač</strong></p></li>
+<li><p>Nekonečné zesílení rozdílového napětí</p></li>
+<li><p>Nulové zesílení souhlasného napětí</p></li>
+<li><p>Nulový vstupní odpor</p></li>
+<li><p>Nulové vstupní proudy</p></li>
+<li><p><strong>Reálný OP</strong></p></li>
+<li><p>Zesílení je konečné</p></li>
+<li><p>Zesílení souhlasného signálu není nulové</p></li>
+<li><p>Vstupní odpor je velmi velký, ale konečný</p></li>
+<li><p>Existují vstupní proudy</p></li>
+<li><p><strong>Napájení</strong></p></li>
+<li><p>Nejčastěji symetrické +- 3V až 15</p></li>
+<li><p>Rozsah napájení určuje:</p></li>
+<li><p>Povolený rozsah vstupních napětí</p></li>
+<li><p>Maximá</p></li>
+</ul>
+</section>
+<section id="zapojení" class="sectionbox">
+<h2>Zapojení</h2>
+<ol type="1">
+<li><strong>Invertující</strong></li>
+</ol>
+<figure>
+<img src="media/image1.png" style="width:1.90098in;height:1.45337in"
+alt="Obsah obrázku diagram, skica, řada/pruh, Technický výkres Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku diagram, skica, řada/pruh,
+Technický výkres Obsah generovaný pomocí AI může být
+nesprávný.</figcaption>
+</figure>
+<ol start="2" type="1">
+<li><strong>Neinvertující zesilovač</strong></li>
+</ol>
+<figure>
+<img src="media/image2.png" style="width:2.7015in;height:1.51831in"
+alt="Obsah obrázku diagram, skica, Technický výkres, Plán Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku diagram, skica, Technický
+výkres, Plán Obsah generovaný pomocí AI může být nesprávný.</figcaption>
+</figure>
+</section>
+<section id="hlavní-zdroje-chyb" class="sectionbox">
+<h2>Hlavní zdroje chyb</h2>
+<ul>
+<li><p>Nenulové vstupní proudy</p></li>
+<li><p>Napěťový offset</p></li>
+</ul>
+<figure>
+<img src="media/image3.png" style="width:2.86822in;height:1.94027in"
+alt="Obsah obrázku diagram, skica, řada/pruh, Technický výkres Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku diagram, skica, řada/pruh,
+Technický výkres Obsah generovaný pomocí AI může být
+nesprávný.</figcaption>
+</figure>
+</section>
+<section id="kompenzace-chyb" class="sectionbox">
+<h2>Kompenzace chyb</h2>
+<p><img src="media/image4.png"
+style="width:2.91785in;height:1.05939in" /><img src="media/image5.png"
+style="width:3.74818in;height:2.34377in"
+alt="Obsah obrázku diagram, řada/pruh, Technický výkres, skica Obsah generovaný pomocí AI může být nesprávný." /></p>
+<ul>
+<li><p>Druhý zdroj chyby je napěťový offset Uoff a ten je dán vnitřní
+nesymetrií OZ</p></li>
+<li><p>Řeší se dle výrobce OZ – pomocí trimru</p></li>
+</ul>
+</section>
+<section id="odstranění-vlivu-odporu-zdroje" class="sectionbox">
+<h2>Odstranění vlivu odporu zdroje</h2>
+<figure>
+<img src="media/image6.png" style="width:3.46374in;height:1.86981in"
+alt="Obsah obrázku text, diagram, řada/pruh, Technický výkres Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku text, diagram, řada/pruh,
+Technický výkres Obsah generovaný pomocí AI může být
+nesprávný.</figcaption>
+</figure>
+<hr />
+</section>
+<section id="typ-chyby-lze-kompenzovat-rezistorem-proč"
+class="sectionbox">
+<h2>Typ chyby** <strong>Lze kompenzovat rezistorem?</strong> **Proč</h2>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 44%" />
+<col style="width: 26%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Vstupní proudy OZ</td>
+<td style="text-align: left;">✅ ano</td>
+<td>jsou vlastností OZ</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Napěťový offset</td>
+<td style="text-align: left;">⚠️ částečně t</td>
+<td>rimr / typ OZ</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vnitřní odpor zdroje</td>
+<td style="text-align: left;">❌ ne</td>
+<td>je mimo OZ</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="měření-rozdílových-signálů" class="sectionbox">
+<h2>Měření rozdílových signálů</h2>
+<ul>
+<li><p>Měří se jako rozdíl napětí mezi 2 elektrodami v biologických
+signálech a na obou elektrodách se objevuje užitečný signál a rušení
+společně pro oba vstupy</p></li>
+<li><p>Cílem je zesílit rozdíl a potlačit souhlasnou složku</p></li>
+<li><p>Musí platit Au+ = Au-</p></li>
+</ul>
+<figure>
+<img src="media/image7.png" style="width:2.88089in;height:1.69428in"
+alt="Obsah obrázku diagram, skica, Technický výkres, Plán Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku diagram, skica, Technický
+výkres, Plán Obsah generovaný pomocí AI může být nesprávný.</figcaption>
+</figure>
+<p><img src="media/image8.png"
+style="width:2.43314in;height:0.6376in" /><img src="media/image9.png"
+style="width:3.00716in;height:1.99492in"
+alt="Obsah obrázku text, diagram, Písmo, řada/pruh Obsah generovaný pomocí AI může být nesprávný." /></p>
+</section>
+<section id="souhlasný-a-rozdílový-signál-definice" class="sectionbox">
+<h2>Souhlasný a rozdílový signál – definice</h2>
+<ul>
+<li>Souhlasný signál – napětí, které je na obou vstupech stejné</li>
+</ul>
+<figure>
+<img src="media/image10.png" style="width:1.71766in;height:0.59621in"
+alt="Obsah obrázku Písmo, text, bílé, typografie Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku Písmo, text, bílé,
+typografie Obsah generovaný pomocí AI může být nesprávný.</figcaption>
+</figure>
+<ul>
+<li>Rozdílový signál – užitečný signál</li>
+</ul>
+<figure>
+<img src="media/image11.png" style="width:1.50737in;height:0.38001in"
+alt="Obsah obrázku typografie, Písmo, kaligrafie, rukopis Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku typografie, Písmo,
+kaligrafie, rukopis Obsah generovaný pomocí AI může být
+nesprávný.</figcaption>
+</figure>
+<figure>
+<img src="media/image12.png" style="width:1.83913in;height:1.04661in"
+alt="Obsah obrázku Písmo, text, bílé, design Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku Písmo, text, bílé, design
+Obsah generovaný pomocí AI může být nesprávný.</figcaption>
+</figure>
+<p><img src="media/image13.png"
+style="width:0.55457in;height:0.34554in" /><img src="media/image14.png"
+style="width:1.22681in;height:0.30226in" /><strong>Zesílení souhlasné a
+rozdílové složky</strong></p>
+<figure>
+<img src="media/image15.png" style="width:3.32045in;height:1.58226in"
+alt="Obsah obrázku text, Písmo, diagram, snímek obrazovky Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku text, Písmo, diagram,
+snímek obrazovky Obsah generovaný pomocí AI může být
+nesprávný.</figcaption>
+</figure>
+</section>
+<section id="potlačení-souhlasné-složky" class="sectionbox">
+<h2>Potlačení souhlasné složky</h2>
+<ul>
+<li><p>Míra potlačení souhlasného signálu se určuje parametrem
+CMMR</p></li>
+<li><figure>
+<img src="media/image16.png" style="width:1.73293in;height:0.50969in"
+alt="Obsah obrázku Písmo, text, bílé, kaligrafie Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku Písmo, text, bílé,
+kaligrafie Obsah generovaný pomocí AI může být nesprávný.</figcaption>
+</figure></li>
+<li><p>Čím větší, tím lepší zesilovač</p></li>
+<li><p>Prakticky alespoň 80 dB</p></li>
+</ul>
+</section>
+<section id="vliv-odporů-elektrod-ri1-a-ri2" class="sectionbox">
+<h2>Vliv odporů elektrod Ri1 a Ri2</h2>
+<figure>
+<img src="media/image17.png" style="width:3.99945in;height:1.84482in"
+alt="Obsah obrázku diagram, Technický výkres, Plán, řada/pruh Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku diagram, Technický výkres,
+Plán, řada/pruh Obsah generovaný pomocí AI může být
+nesprávný.</figcaption>
+</figure>
+<p>Řešení pomocí oddělení vstupů sledovačem signálu nebo neinvertujícím
+zesilovačem:</p>
+<figure>
+<img src="media/image18.png" style="width:5.87704in;height:3.41532in"
+alt="Obsah obrázku diagram, Technický výkres, Plán, řada/pruh Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku diagram, Technický výkres,
+Plán, řada/pruh Obsah generovaný pomocí AI může být
+nesprávný.</figcaption>
+</figure>
+<ul>
+<li><p>A1 a A2 zapojeny jako sledovače napětí</p></li>
+<li><p>Zesílení Aa1 = Aa2 = 1</p></li>
+<li><p>Díky A1 a A2 jsou Ri1 a Ri2 odděleny od zbytku
+zesilovače</p></li>
+</ul>
+<figure>
+<img src="media/image19.png" style="width:6.3in;height:3.12847in"
+alt="Obsah obrázku diagram, Technický výkres, Plán, schématické Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku diagram, Technický výkres,
+Plán, schématické Obsah generovaný pomocí AI může být
+nesprávný.</figcaption>
+</figure>
+<ul>
+<li><p>A1 a A2 jsou vstupní zesilovače zapojeny jako neinvertující a
+jejich úloha je zesílit signál ještě přes rozdílovým
+zesilovačem</p></li>
+<li><p>A3 je rozdílový zesilovač a provádí vlastní odečtení signálu a
+při volbě R1=R3 a R2=R4 má rozdílové napětí: ADif, A3 = R2/R1</p></li>
+<li><p>Při symetrické volbě rezistorů:</p></li>
+</ul>
+<figure>
+<img src="media/image20.png" style="width:2.97134in;height:0.78917in"
+alt="Obsah obrázku text, Písmo, rukopis, bílé Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku text, Písmo, rukopis, bílé
+Obsah generovaný pomocí AI může být nesprávný.</figcaption>
+</figure>
+</section>
+<section id="přístrojový-zesilovač" class="sectionbox">
+<h2>Přístrojový zesilovač</h2>
+<ul>
+<li><p>Zesilovač určený pro přesné měření velmi malých rozdílových
+signálů – EKG, EEG, EMG</p></li>
+<li><p><strong>Vlastnosti:</strong></p></li>
+<li><p>Vysoký vstupní odpor</p></li>
+<li><p>Potlačení souhlasné složky</p></li>
+<li><p>Stabilní a přesně definované zesílení</p></li>
+</ul>
+<p><img src="media/image21.png"
+style="width:1.4471in;height:0.36586in" /><img src="media/image22.png"
+style="width:2.16185in;height:0.50795in" /><img src="media/image23.png"
+style="width:3.80527in;height:2.61795in"
+alt="Obsah obrázku text, diagram, Plán, Technický výkres Obsah generovaný pomocí AI může být nesprávný." /></p>
+<ul>
+<li>Elegantní řešení – zesílení se mění jedním prvkem a je zachována
+dokonalá symetrie vstupů</li>
+</ul>
+<p>pletysmografie</p>
+<ul>
+<li><p>Metoda měření změn objemu tkání, nejčastěji vlivem:</p></li>
+<li><p>Průtoku krve</p></li>
+<li><p>Dýchání</p></li>
+<li><p><strong>Fotopletysmografie</strong></p></li>
+<li><p>Optická varianta</p></li>
+<li><p>Sleduje změny odrazu nebo průchodu světla tkání a odraz se liší
+v závislosti na prokrvení tkáně dle tepu a barvě krve dle
+okysličení</p></li>
+<li><p>Pulzní oxymetrie</p></li>
+<li><p>Dvě vlnové délky (červená a infračervená)</p></li>
+<li><p>Sleduje se změna absorpce podle okysličení krve</p></li>
+<li><p>Otický snímač</p></li>
+<li><p>Tvořen infračervenou LED a fotodiodou (detektor)</p></li>
+<li><p>Pracuje v hradlovém režimu (fotoproudovém) – při osvětlení dodává
+proud úměrný intenzitě světla</p></li>
+<li><p>Proud z fotodiody nelze měřit přímo napěťovým zesilovačem – proto
+přiveden jako převodník proud-napětí</p></li>
+<li><p>Strmost převodu je dána hodnotami 100 kohm, 220, 320</p></li>
+<li><p>Kondenzátor ve zpětné vazbě zlepšuje stabilitu</p></li>
+</ul>
+</section>
+</div>
+
+
+<script>
+// Detect if user is on mobile
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+// Add collapsible class to all sectionboxes
+document.querySelectorAll('.sectionbox').forEach(box => {
+  box.classList.add('collapsible');
+});
+
+// Theme Toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const currentTheme = html.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  
+  const btn = event.target.closest('.btn-icon');
+  if (btn) {
+    btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  }
+  
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) {
+    metaTheme.content = newTheme === 'dark' ? '#1a1d23' : '#3498db';
+  }
+}
+
+// Load saved theme
+(function() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  const themeBtn = document.querySelector('.btn-icon');
+  if (themeBtn && savedTheme === 'dark') {
+    themeBtn.textContent = '☀️';
+  }
+  
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) {
+    metaTheme.content = savedTheme === 'dark' ? '#1a1d23' : '#3498db';
+  }
+})();
+
+// Collapsible sections with touch optimization
+document.querySelectorAll('.sectionbox.collapsible > h2').forEach(header => {
+  header.addEventListener('click', function(e) {
+    e.preventDefault();
+    this.parentElement.classList.toggle('collapsed');
+    updateProgress();
+    
+    if (isMobile && !this.parentElement.classList.contains('collapsed')) {
+      setTimeout(() => {
+        this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  });
+  
+  header.addEventListener('touchstart', function(e) {
+    this.style.webkitUserSelect = 'none';
+    this.style.userSelect = 'none';
+  });
+});
+
+function toggleAllSections() {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.remove('collapsed');
+  });
+  updateProgress();
+}
+
+function collapseAllSections() {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.add('collapsed');
+  });
+  updateProgress();
+  
+  if (isMobile) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+// Search functionality
+const searchInput = document.getElementById('searchInput');
+let searchTimeout;
+
+searchInput.addEventListener('input', function() {
+  clearTimeout(searchTimeout);
+  const delay = isMobile ? 400 : 300;
+  
+  searchTimeout = setTimeout(() => {
+    const query = this.value.toLowerCase().trim();
+    const sections = document.querySelectorAll('.sectionbox');
+    let firstMatch = null;
+    
+    sections.forEach(section => {
+      section.classList.remove('highlight');
+      
+      if (query === '') {
+        section.style.display = '';
+        return;
+      }
+      
+      const text = section.textContent.toLowerCase();
+      if (text.includes(query)) {
+        section.style.display = '';
+        section.classList.add('highlight');
+        section.classList.remove('collapsed');
+        if (!firstMatch) firstMatch = section;
+      } else {
+        section.style.display = 'none';
+      }
+    });
+    
+    if (isMobile && firstMatch && query !== '') {
+      setTimeout(() => {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+    
+    updateProgress();
+  }, delay);
+});
+
+if (isMobile) {
+  document.addEventListener('touchstart', function(e) {
+    if (!searchInput.contains(e.target) && searchInput.value === '') {
+      searchInput.blur();
+    }
+  });
+}
+
+// Progress tracking
+function updateProgress() {
+  const sections = document.querySelectorAll('.sectionbox.collapsible');
+  const expanded = document.querySelectorAll('.sectionbox.collapsible:not(.collapsed)');
+  const percentage = (expanded.length / sections.length) * 100;
+  document.getElementById('progressBar').style.width = percentage + '%';
+}
+
+// Scroll progress indicator
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+  }, isMobile ? 50 : 0);
+}, { passive: true });
+
+// Initialize
+updateProgress();
+
+// Auto-collapse all sections on mobile
+if (isMobile) {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.add('collapsed');
+  });
+  updateProgress();
+}
+
+// Keyboard shortcuts (desktop only)
+if (!isMobile) {
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      searchInput.focus();
+    }
+    
+    if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+      e.preventDefault();
+      toggleTheme();
+    }
+  });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+if ('vibrate' in navigator && isMobile) {
+  document.querySelectorAll('.sectionbox.collapsible > h2').forEach(header => {
+    header.addEventListener('click', function() {
+      navigator.vibrate(10);
+    });
+  });
+}
+
+if (isMobile) {
+  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+    document.documentElement.style.setProperty('--transition-fast', '0ms');
+    document.documentElement.style.setProperty('--transition-normal', '0ms');
+    document.documentElement.style.setProperty('--transition-slow', '0ms');
+  }
+}
+</script>
+
+</body>
+</html>

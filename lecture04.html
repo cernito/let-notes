@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cs" xml:lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#3498db" />
+  <meta name="author" content="Tomáš Černík" />
+  <meta name="description" content="ZÁKLADY ULTRAZVUKOVÉ DIAGNOSTIKY - Studijní materiály">
+  <title>ZÁKLADY ULTRAZVUKOVÉ DIAGNOSTIKY</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body>
+
+<!-- Controls Panel -->
+<div class="controls-panel">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="🔍 Hledat v poznámkách..." />
+  </div>
+  <div class="controls-buttons">
+    <button class="btn" onclick="window.location.href='index.html'" title="Zpět na hlavní stránku">🏠 Domů</button>
+    <button class="btn" onclick="toggleAllSections()">Rozbalit vše</button>
+    <button class="btn" onclick="collapseAllSections()">Sbalit vše</button>
+    <button class="btn btn-icon" onclick="toggleTheme()" title="Přepnout tmavý režim">🌙</button>
+    <button class="btn btn-icon" onclick="window.print()" title="Vytisknout">🖨️</button>
+  </div>
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+</div>
+
+<header id="title-block-header">
+  <h1 class="title">ZÁKLADY ULTRAZVUKOVÉ DIAGNOSTIKY</h1>
+  <p class="author">Tomáš Černík</p>
+</header>
+
+<div class="sections">
+<p>Ultrazvuková diagnostika</p>
+<ul>
+<li><p>Zobrazovací metoda založená na odrazu ultrazvukových vln na
+rozhraních tkání</p></li>
+<li><p>Umožňuje zobrazovat struktury v reálném čase</p></li>
+<li><p>Dopplerovské módy umožňují sledovat rychlost a směr proudění
+krve</p></li>
+</ul>
+<p>Fyzikální princip</p>
+<ul>
+<li><p>Ultrazvuk = podélné mechanické vlnění</p></li>
+<li><p>Vyslání pulzu – odraz na rozhraní – příjem ozvěny</p></li>
+<li><p>Z doby návratu se určuje hloubka rozhraní</p></li>
+<li><p>Princip piezoelektrického měniče</p></li>
+<li><p>Elektrický impuls způsobí mechanickou deformaci piezoelektrického
+krystalu a krystal se rychle smrští, tím vznikne mechanické
+kmitání</p></li>
+<li><figure>
+<img src="media/image1.png" style="width:3.19461in;height:0.65281in"
+alt="Obsah obrázku text, Písmo, bílé Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku text, Písmo, bílé Obsah
+generovaný pomocí AI může být nesprávný.</figcaption>
+</figure></li>
+</ul>
+<p>Kmitočtový rozsah</p>
+<ul>
+<li>Větší než 20 kHz a v medicíně od 2-30 MHz</li>
+</ul>
+<p>Rychlost šíření</p>
+<ul>
+<li><p>Závisí na prostředí</p></li>
+<li><p>Vzduch – 330</p></li>
+<li><p>Voda – 1520</p></li>
+<li><p>Měkké tkáně – 1540</p></li>
+<li><p>Kost – ař 3800</p></li>
+</ul>
+<p>Vlnová délka</p>
+<figure>
+<img src="media/image2.png" style="width:1.26059in;height:0.84387in"
+alt="Obsah obrázku skica, typografie, design Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku skica, typografie, design
+Obsah generovaný pomocí AI může být nesprávný.</figcaption>
+</figure>
+<p>Akustická impedance</p>
+<ul>
+<li><p>Rozhoduje o odrazu vlny na rozhraní</p></li>
+<li><p>Čím větší rozdíl impedancí, tím větší obraz <img
+src="media/image3.png" style="width:0.81346in;height:0.23878in"
+alt="Obsah obrázku Písmo, bílé, Grafika, symbol Obsah generovaný pomocí AI může být nesprávný." /></p></li>
+<li><p>Tuk – 1,37</p></li>
+<li><p>Voda – 1,49</p></li>
+</ul>
+<p>Odraz na rozhraní</p>
+<ul>
+<li><p>Na každém rozhraní s jinou impedancí vzniká odraz a množství
+odražené energie je tím větší, čím větší je rozdíl impedancí</p></li>
+<li><p>Činitel odrazu = poměr akustického tlaku odražené a dopadající
+vlny</p></li>
+<li><p><img src="media/image4.png"
+style="width:1.11501in;height:0.53706in" /><img src="media/image5.png"
+style="width:1.19868in;height:0.48486in"
+alt="Obsah obrázku Písmo, bílé, číslo, text Obsah generovaný pomocí AI může být nesprávný." /></p></li>
+</ul>
+<p>Absorbce ultrazvukové vlny</p>
+<ul>
+<li>Při šíření ztrátovým prostředím se energie vlny mění na teplo a
+dochází k útlumu signálu</li>
+</ul>
+<p><img src="media/image6.png" style="width:2.56286in;height:0.573in"
+alt="Obsah obrázku Písmo, rukopis, bílé, kaligrafie Obsah generovaný pomocí AI může být nesprávný." />
+- akustický tlak klesá exponenciálně s rostoucí vzdáleností, frekvencí a
+absorpčními vlastnostmi</p>
+<ul>
+<li><p>P(x) – akustický tlak – to, co sonda přijme</p></li>
+<li><p>P0 – akustický tlak u zdroje vlnění</p></li>
+<li><p>Alfa – absropční konstanta – jak silně tkáň pohlcuje
+ultrazvuk</p></li>
+</ul>
+<p>Hloubka průniku</p>
+<ul>
+<li><p>Je závislá na použitém kmitočtu ultrazvukové vlny</p></li>
+<li><p>Nízké f = hluboké orgány</p></li>
+<li><p>Vysoké f = povrchové struktury</p></li>
+</ul>
+<p>Rozlišovací schopnost</p>
+<ul>
+<li><p>Schopnost rozlišit dva blízké objekty – vzdálené od sebe o délku
+jejich průměru</p></li>
+<li><p>Druhy:</p></li>
+<li><p>Axiální</p></li>
+<li><p>Ve směru šíření vlny a závisí na délce pulzu – čím kratší, tím
+lepší – schopnost rozlišit dva objekty za sebou</p></li>
+<li><p>Dlouhé kladivo = trefím oba hřebíky naráz</p></li>
+<li><p>Krátké kladivo = trefím každý zvlášť</p></li>
+<li><p>Laterální</p></li>
+<li><p>Kolmo na směr šíření a závisí na šířce svazku</p></li>
+<li><p>schopnost rozlišit dvě struktury ležící vedle sebe kolmo ke směru
+šíření ultrazvukové vlny</p></li>
+</ul>
+<p>Zobrazovací módy</p>
+<ul>
+<li><p>A – mode</p></li>
+<li><p>Amplitude mode = jednorozměrný</p></li>
+<li><figure>
+<img src="media/image7.jpeg" style="width:3.14164in;height:2.87879in"
+alt="A-mode - RCEMLearning" />
+<figcaption aria-hidden="true">A-mode - RCEMLearning</figcaption>
+</figure></li>
+<li><p>B – mode</p></li>
+<li><p>Brightness mode</p></li>
+<li><p>Zobrazuje 2D obraz řezu tělem</p></li>
+<li><p>Každý bod = jas</p></li>
+<li><p>Sonda vyšle paprsek jeden, vznikne jeden A-mód, paprsek se posune
+a mnoho A-módu vedle sebe vytvoří 2D obraz</p></li>
+<li><p>Barvy:</p></li>
+<li><p>Bílá = silný odraz</p></li>
+<li><p>Šedá = měkké tkáně</p></li>
+<li><p>Černá = tekutiny</p></li>
+<li><p>Zobrazení orgánů, sval, cév...</p></li>
+</ul>
+<figure>
+<img src="media/image8.png" style="width:4.10606in;height:3.34704in"
+alt="Grayscale B-mode images obtained from the participants with ..." />
+<figcaption aria-hidden="true">Grayscale B-mode images obtained from the
+participants with ...</figcaption>
+</figure>
+<ul>
+<li><p>M- mode</p></li>
+<li><p>Zobrazuje pohyb struktury v čase</p></li>
+<li><p>zobrazuje změny polohy struktur v čase podél jedné vyšetřované
+linie</p></li>
+<li><p>Sonda nepohybuje paprskem a opakuje měření velmi rychle</p></li>
+<li><p>Kardiologie</p></li>
+</ul>
+<figure>
+<img src="media/image9.png" style="width:3.74194in;height:3.11128in"
+alt="Obsah obrázku snímek obrazovky, Zobrazovací metoda v lékařství, Porodní ultrasonografie, radiologie Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku snímek obrazovky,
+Zobrazovací metoda v lékařství, Porodní ultrasonografie, radiologie
+Obsah generovaný pomocí AI může být nesprávný.</figcaption>
+</figure>
+<p>Techniky skenování objektu</p>
+<ul>
+<li><p><strong>Lineární sonda</strong></p></li>
+<li><p>Paprsky jdou rovnoběžně</p></li>
+<li><p>Obraz je obdélník</p></li>
+<li><p>Máme mnoho piezoelementrů v řadu a postupně se aktivují a každý
+pošle kolmý paprsek dolů – A-módy se skládají lineárně vedle
+sebe</p></li>
+<li><p>Dobré laterální rozlišení</p></li>
+<li><p>Cévy, štítná žláza, svaly</p></li>
+<li><p><strong>Konvexní sonda</strong></p></li>
+<li><p>Sonda má zakřivený tvar a paprsky se z ní vějířovitě
+rozbíhají</p></li>
+<li><p>Obraz je lichoběžník / vějíř</p></li>
+<li><p>Funguje podobně jako lineární sonda, ale elementy jsou na
+oblouku</p></li>
+<li><p>Břicho, játra, gynekologie</p></li>
+<li><p><strong>Sektorová sonda</strong></p></li>
+<li><p>Velmi úzký kontakt se sondou</p></li>
+<li><p>Paprsky vycházejí z jednoho bodu</p></li>
+<li><p>Obraz je výseč kruhu</p></li>
+<li><p>Paprsek se natáčí v úhlu a všechny A-módy vycházejí z téměř
+stejného místa</p></li>
+</ul>
+<figure>
+<img src="media/image10.png" style="width:4.7771in;height:1.52918in"
+alt="Obsah obrázku text, snímek obrazovky, Písmo, účtenka Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku text, snímek obrazovky,
+Písmo, účtenka Obsah generovaný pomocí AI může být
+nesprávný.</figcaption>
+</figure>
+<p>Dopplerův jev</p>
+<ul>
+<li><p>Při odrazu od pohybujícího se objektu se mění frekvence přijatého
+signálu</p></li>
+<li><p>Dopplerova frekvence:</p></li>
+<li><figure>
+<img src="media/image11.png" style="width:1.49628in;height:0.5237in"
+alt="Obsah obrázku Písmo, bílé, text, řada/pruh Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku Písmo, bílé, text,
+řada/pruh Obsah generovaný pomocí AI může být nesprávný.</figcaption>
+</figure></li>
+<li><p>Fd je frekvence přijaté</p></li>
+<li><p>F0 je frekvence vysílané</p></li>
+<li><p>V je relativní rychlost pohybu</p></li>
+<li><p>C je rychlost šíření vlny</p></li>
+</ul>
+<p>Dopplerova frekvence</p>
+<ul>
+<li>Rozdíl mezi frekvencí vyslané a přijaté ultrazvukové vlny</li>
+</ul>
+<blockquote>
+<p><img src="media/image12.png" style="width:2.27835in;height:0.4732in"
+alt="Obsah obrázku Písmo, text, řada/pruh, bílé Obsah generovaný pomocí AI může být nesprávný." />
+- + a – je tam proto, protože se objekt pohybuje k sondě a od sondy</p>
+<p>Obrazové artefakty</p>
+</blockquote>
+<ul>
+<li><p>zobrazení, které neodpovídá skutečné anatomii, ale vzniká v
+důsledku porušení předpokladů ultrazvukového zobrazení</p></li>
+<li><p>my máme nějaké předpoklady ultrazvuku a jakmile některé neplatí,
+tak vzniká artefakt</p></li>
+</ul>
+<blockquote>
+<p>Odraz signálu</p>
+</blockquote>
+<ul>
+<li><p>Princip:</p></li>
+<li><p>Silně odrazné objekty jsou kost, kámen – téměř všechna energie se
+odrazí zpět – projev v obraze je jasná struktura a pod ní akustický stín
+= žlučový kámen, kost, plyn ve střevech</p></li>
+<li><p>Odraz na skloněné ploše</p></li>
+<li><p>Paprsek dopadá šikmo a odraz se nevrací zpět k sondě, takže si
+přijímač myslí, že tam nic není</p></li>
+<li><p>Projev v obraze: Struktura je zeslabená nebo neviditelná</p></li>
+<li><p>Zesílení signálu</p></li>
+<li><p>Ultrazvuk prochází oblastí s malým útlumem a za touto ovlastí má
+vlna vyšší amplitudu, než se očekává</p></li>
+<li><p>Projev v obraze: Obraz za tekutinou je světlejší – falešné
+zesílení</p></li>
+<li><p>Okrajové zkreslení</p></li>
+<li><p>Princip:</p></li>
+<li><p>Paprsky dopadají tečně na zakřivený objekt a dochází k totálnímu
+odrai a rozptylu paprsku</p></li>
+<li><p>Stíny po stranách kulatých struktur</p></li>
+<li><figure>
+<img src="media/image13.png" style="width:0.72214in;height:0.89537in"
+alt="Obsah obrázku snímek obrazovky, kruh, design Obsah generovaný pomocí AI může být nesprávný." />
+<figcaption aria-hidden="true">Obsah obrázku snímek obrazovky, kruh,
+design Obsah generovaný pomocí AI může být nesprávný.</figcaption>
+</figure></li>
+<li><p>Ozvěna</p></li>
+<li><p>Opakované odrazy mezi dvěma silně odraznými rozhraními – signál
+se odráží sem a tam</p></li>
+<li><p>Projev v obraze:</p></li>
+<li><p>Více paralelních linií</p></li>
+<li><p>Ve stále větší hloubce</p></li>
+<li><p>Zrcadlení</p></li>
+<li><p>Silný reflektor – vlna se nejprve odrazí od struktury a pak od
+reflektoru, tudíž přístroj špatně vyhodnotí dráhu</p></li>
+<li><p>Projev: duplicitní obraz</p></li>
+<li><p>Vibrace tkání</p></li>
+<li><p>Vibrace tkání nejsou proudění krve, ale mechanické chvění okolní
+tkáně způsobené proudící krví.</p></li>
+<li><p>Když neteče hladce krev, ale turbulentně – za zúžením cévy, při
+vysokých rychlostech toku</p></li>
+</ul>
+</div>
+
+
+<script>
+// Detect if user is on mobile
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+// Add collapsible class to all sectionboxes
+document.querySelectorAll('.sectionbox').forEach(box => {
+  box.classList.add('collapsible');
+});
+
+// Theme Toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const currentTheme = html.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  
+  const btn = event.target.closest('.btn-icon');
+  if (btn) {
+    btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  }
+  
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) {
+    metaTheme.content = newTheme === 'dark' ? '#1a1d23' : '#3498db';
+  }
+}
+
+// Load saved theme
+(function() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  const themeBtn = document.querySelector('.btn-icon');
+  if (themeBtn && savedTheme === 'dark') {
+    themeBtn.textContent = '☀️';
+  }
+  
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) {
+    metaTheme.content = savedTheme === 'dark' ? '#1a1d23' : '#3498db';
+  }
+})();
+
+// Collapsible sections with touch optimization
+document.querySelectorAll('.sectionbox.collapsible > h2').forEach(header => {
+  header.addEventListener('click', function(e) {
+    e.preventDefault();
+    this.parentElement.classList.toggle('collapsed');
+    updateProgress();
+    
+    if (isMobile && !this.parentElement.classList.contains('collapsed')) {
+      setTimeout(() => {
+        this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  });
+  
+  header.addEventListener('touchstart', function(e) {
+    this.style.webkitUserSelect = 'none';
+    this.style.userSelect = 'none';
+  });
+});
+
+function toggleAllSections() {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.remove('collapsed');
+  });
+  updateProgress();
+}
+
+function collapseAllSections() {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.add('collapsed');
+  });
+  updateProgress();
+  
+  if (isMobile) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+// Search functionality
+const searchInput = document.getElementById('searchInput');
+let searchTimeout;
+
+searchInput.addEventListener('input', function() {
+  clearTimeout(searchTimeout);
+  const delay = isMobile ? 400 : 300;
+  
+  searchTimeout = setTimeout(() => {
+    const query = this.value.toLowerCase().trim();
+    const sections = document.querySelectorAll('.sectionbox');
+    let firstMatch = null;
+    
+    sections.forEach(section => {
+      section.classList.remove('highlight');
+      
+      if (query === '') {
+        section.style.display = '';
+        return;
+      }
+      
+      const text = section.textContent.toLowerCase();
+      if (text.includes(query)) {
+        section.style.display = '';
+        section.classList.add('highlight');
+        section.classList.remove('collapsed');
+        if (!firstMatch) firstMatch = section;
+      } else {
+        section.style.display = 'none';
+      }
+    });
+    
+    if (isMobile && firstMatch && query !== '') {
+      setTimeout(() => {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+    
+    updateProgress();
+  }, delay);
+});
+
+if (isMobile) {
+  document.addEventListener('touchstart', function(e) {
+    if (!searchInput.contains(e.target) && searchInput.value === '') {
+      searchInput.blur();
+    }
+  });
+}
+
+// Progress tracking
+function updateProgress() {
+  const sections = document.querySelectorAll('.sectionbox.collapsible');
+  const expanded = document.querySelectorAll('.sectionbox.collapsible:not(.collapsed)');
+  const percentage = (expanded.length / sections.length) * 100;
+  document.getElementById('progressBar').style.width = percentage + '%';
+}
+
+// Scroll progress indicator
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+  }, isMobile ? 50 : 0);
+}, { passive: true });
+
+// Initialize
+updateProgress();
+
+// Auto-collapse all sections on mobile
+if (isMobile) {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.add('collapsed');
+  });
+  updateProgress();
+}
+
+// Keyboard shortcuts (desktop only)
+if (!isMobile) {
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      searchInput.focus();
+    }
+    
+    if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+      e.preventDefault();
+      toggleTheme();
+    }
+  });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+if ('vibrate' in navigator && isMobile) {
+  document.querySelectorAll('.sectionbox.collapsible > h2').forEach(header => {
+    header.addEventListener('click', function() {
+      navigator.vibrate(10);
+    });
+  });
+}
+
+if (isMobile) {
+  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+    document.documentElement.style.setProperty('--transition-fast', '0ms');
+    document.documentElement.style.setProperty('--transition-normal', '0ms');
+    document.documentElement.style.setProperty('--transition-slow', '0ms');
+  }
+}
+</script>
+
+</body>
+</html>
