@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cs" xml:lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#3498db" />
+  <meta name="author" content="Tomáš Černík" />
+  <meta name="description" content="Biologické signály - vlastnosti a artefakty - Studijní materiály">
+  <title>Biologické signály - Vlastnosti a artefakty</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body>
+
+<!-- Controls Panel -->
+<div class="controls-panel">
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="🔍 Hledat v poznámkách..." />
+  </div>
+  <div class="controls-buttons">
+    <button class="btn" onclick="window.location.href='index.html'" title="Zpět na hlavní stránku">🏠 Domů</button>
+    <button class="btn" onclick="toggleAllSections()">Rozbalit vše</button>
+    <button class="btn" onclick="collapseAllSections()">Sbalit vše</button>
+    <button class="btn btn-icon" onclick="toggleTheme()" title="Přepnout tmavý režim">🌙</button>
+    <button class="btn btn-icon" onclick="window.print()" title="Vytisknout">🖨️</button>
+  </div>
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+</div>
+
+<header id="title-block-header">
+  <h1 class="title">Biologické signály - Vlastnosti a artefakty</h1>
+  <p class="author">Tomáš Černík</p>
+</header>
+
+<div class="sections">
+  <section id="vznik-signálu" class="sectionbox collapsible">
+    <h2>Vznik signálu</h2>
+    <ul>
+      <li><strong>Vlastní činností organismu:</strong>
+        <ul>
+          <li>Elektrická aktivita nervů a svalů</li>
+          <li>Srdeční činnost</li>
+          <li>Mozková aktivita</li>
+        </ul>
+      </li>
+      <li><strong>Vlivem vnějšího působení:</strong>
+        <ul>
+          <li>Reakce na světlo, zvuk a tlak</li>
+          <li>Odpověď na elektrickou nebo mechanickou stimulaci</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="vlastnosti-biologických-signálů" class="sectionbox collapsible">
+    <h2>Vlastnosti biologických signálů</h2>
+    <ul>
+      <li><strong>Amplituda:</strong>
+        <ul>
+          <li>Velmi malé hodnoty, typicky jednotky mikrovolt až <span class="math inline">\(\text{mV}\)</span></li>
+          <li>EEG = desítky <span class="math inline">\(\mathrm{\mu V}\)</span></li>
+          <li>EKG = cca 1 <span class="math inline">\(\text{mV}\)</span></li>
+          <li>EMG = jednotky <span class="math inline">\(\mathrm{mV}\)</span></li>
+          <li>klade poměrně velké nároky na kvalitu zesílení a potlačení rušení</li>
+        </ul>
+      </li>
+      <li><strong>Frekvenční rozsah:</strong>
+        <ul>
+          <li>Velmi široký - setiny Hz až stovky Hz</li>
+          <li>EEG = 0.1-100 Hz</li>
+          <li>EKG = 0.05 - 150 Hz</li>
+          <li>EMG = až stovky Hz</li>
+          <li>vyšší frekvence jsou náchylné na šum</li>
+          <li>nižší jsou náchylné na pohybové artefakty</li>
+        </ul>
+      </li>
+      <li><strong>Výstupní odpor zdroje</strong>
+        <ul>
+          <li>Velmi vysoký výstupní odpor - každý reálný zdroj lze nahradit ideálním zdrojem napětí s nějakým vnitřním odporem</li>
+          <li>biologický zdroj je např: přes buněčné membrány, přes tkáně s velkým odporem</li>
+          <li>čím větší R, tak tím menší proud zdroj dodá - často desítky <span class="math inline">\(\text{k}\Omega\)</span></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="příklad-výpočet-impedance" class="sectionbox collapsible">
+    <h2>Příklad: Výpočet impedance</h2>
+    <p><strong>Zadání:</strong> Máme EKG, kde si srdce vytváří napětí 1 <span class="math inline">\(\text{mV}\)</span> a výstupní odpor zdroje je 30 <span class="math inline">\(\text{k}\Omega\)</span>. Připojím měřící přístroj s vstupním odporem 10 <span class="math inline">\(\text{k}\Omega\)</span>.</p>
+    
+    <p><strong>Výpočet:</strong></p>
+    <span class="math display">\[
+    \begin{align}
+    \mathrm{R_{celkem}} &= \mathrm{R_Z + R_{měř} = 30 + 10 = 40~k\Omega} \\
+    \mathrm{\text{Obvodem teče proud: } I} &= \frac{U_z}{R_{celk}} = \frac{1~\text{mV}}{40~\text{k}\Omega} \\
+    \mathrm{\text{Jaké napětí měříme? } U_{měř}} &= I \cdot R_{měř} \\
+    \mathrm{U_{měř}} &= \frac{U_z}{R_z + R_{měř}} \cdot R_{měř}
+    \end{align}
+    \]</span>
+    
+    <p style="background: rgba(255, 165, 0, 0.1); padding: 12px; border-left: 4px solid orange; border-radius: 4px; margin-top: 16px;">
+      <strong>💡 Poznámka:</strong> Pochopit odpor tkání a jejich měření
+    </p>
+  </section>
+
+  <section id="artefakty" class="sectionbox collapsible">
+    <h2>Artefakty</h2>
+    
+    <h3 style="color: var(--text-highlight); margin-top: 1rem;">Definice:</h3>
+    <ul>
+      <li>Složka zaznamenaného signálu, která nevznikla ve vyšetřované části těla a nenese diagnostickou informaci</li>
+      <li>Může mít větší amplitudu než vlastní signál</li>
+    </ul>
+
+    <h3 style="color: var(--text-highlight); margin-top: 1.5rem;">Proč jsou artefakty v medicíně kritické?</h3>
+    <ul>
+      <li>Falešně pozitivní nálezy</li>
+      <li>Falešně negativní nálezy</li>
+      <li>Špatná klinická rozhodnutí</li>
+    </ul>
+  </section>
+
+  <section id="technické-artefakty" class="sectionbox collapsible">
+    <h2>Technické artefakty - elektronika, prostředí</h2>
+    
+    <ul>
+      <li><strong>Elektrostatické artefakty:</strong>
+        <ul>
+          <li>Způsobené elektrochemickými a elektrostatickými jevy na rozhraní</li>
+          <li><strong>Mechanismus vzniku:</strong>
+            <ul>
+              <li>Změny na rozhraní elektroda - kůže</li>
+            </ul>
+          </li>
+          <li><strong>Příčiny:</strong>
+            <ul>
+              <li>Vyschnutý gel, špatně přilepená elektroda</li>
+            </ul>
+          </li>
+          <li><strong>Projev signálu:</strong>
+            <ul>
+              <li>Pomalý drift základní linie = pozvolná změna referenční úrovně signálu v čase, která nemá fyziologický původ</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li><strong>Rušení elektrovodnou sítí (50 Hz):</strong>
+        <ul>
+          <li><strong>Mechanismus:</strong>
+            <ul>
+              <li>Kapacitní vazba</li>
+              <li>Elektromagnetická indukce</li>
+            </ul>
+          </li>
+          <li><strong>Projev:</strong>
+            <ul>
+              <li>Sinusový signál o frekvenci 50 Hz</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li><strong>Impulsní rušení:</strong>
+        <ul>
+          <li>Krátké náhlé poruchy signálu s velkou amplitudou</li>
+          <li><strong>Zdroje:</strong>
+            <ul>
+              <li>Motory, relé, digitální obvody</li>
+            </ul>
+          </li>
+          <li><strong>Proč je to problém, když je poznám?</strong>
+            <ul>
+              <li>Impulsy mají široké frekvenční spektrum a špatně se filtrují, tudíž mohou maskovat QRS komplex a vytvořit falešné špičky</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li><strong>Rušivá elektromagnetická pole</strong></li>
+
+      <li><strong>Šum elektronických prvků</strong>
+        <ul>
+          <li>Nelze odstranit, ale minimalizovat</li>
+          <li><strong>Tepelný šum:</strong>
+            <ul>
+              <li>Vzniká pohybem nosičů nábojů - závisí na teplotě, odporu</li>
+            </ul>
+          </li>
+          <li><strong>Šum polovodičů:</strong>
+            <ul>
+              <li>Tranzistory a operační zesilovače</li>
+            </ul>
+          </li>
+          <li><strong>Kontaktní šum:</strong>
+            <ul>
+              <li>Přechody, konektory</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="biologické-artefakty" class="sectionbox collapsible">
+    <h2>Biologické artefakty - jiné fyziologické procesy</h2>
+    
+    <ul>
+      <li><strong>Pohybové artefakty:</strong>
+        <ul>
+          <li><strong>Mechanismus:</strong>
+            <ul>
+              <li>Změny tlaku elektrod</li>
+              <li>Mechanické napětí kůže</li>
+            </ul>
+          </li>
+          <li><strong>Projev:</strong>
+            <ul>
+              <li>Vysokofrekvenční oscilace</li>
+              <li>Velká amplituda</li>
+            </ul>
+          </li>
+          <li><strong>Příklad:</strong> U EKG při chůzi</li>
+        </ul>
+      </li>
+
+      <li><strong>Vzájemné ovlivňování biologických signálů:</strong>
+        <ul>
+          <li>EMG ruší EEG, pohyb ruší EEG</li>
+          <li>Biologické artefakty mohou vznikat při vzájemné interferenci fyziologických procesů</li>
+        </ul>
+      </li>
+
+      <li><strong>Biologické rytmy:</strong>
+        <ul>
+          <li><strong>Časový rozsah:</strong>
+            <ul>
+              <li><span class="math inline">\(\text{ms}\)</span> - nervová aktivita</li>
+              <li><span class="math inline">\(\text{s}\)</span> - srdeční rytmus</li>
+              <li><span class="math inline">\(\text{minuty/hodiny}\)</span> - hormony</li>
+              <li><span class="math inline">\(\text{dny/roky}\)</span> - cirkadiánní a dlouhodobé rytmy</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<script>
+// Detect if user is on mobile
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+// Theme Toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const currentTheme = html.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  
+  // Update button emoji
+  const btn = event.target.closest('.btn-icon');
+  if (btn) {
+    btn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  }
+  
+  // Update theme-color meta tag for mobile browsers
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) {
+    metaTheme.content = newTheme === 'dark' ? '#1a1d23' : '#3498db';
+  }
+}
+
+// Load saved theme
+(function() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  const themeBtn = document.querySelector('.btn-icon');
+  if (themeBtn && savedTheme === 'dark') {
+    themeBtn.textContent = '☀️';
+  }
+  
+  // Set initial theme color
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) {
+    metaTheme.content = savedTheme === 'dark' ? '#1a1d23' : '#3498db';
+  }
+})();
+
+// Collapsible sections with touch optimization
+document.querySelectorAll('.sectionbox.collapsible > h2').forEach(header => {
+  header.addEventListener('click', function(e) {
+    e.preventDefault();
+    this.parentElement.classList.toggle('collapsed');
+    updateProgress();
+    
+    // Scroll into view on mobile after expanding
+    if (isMobile && !this.parentElement.classList.contains('collapsed')) {
+      setTimeout(() => {
+        this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  });
+  
+  // Prevent text selection on double-tap (mobile)
+  header.addEventListener('touchstart', function(e) {
+    this.style.webkitUserSelect = 'none';
+    this.style.userSelect = 'none';
+  });
+});
+
+function toggleAllSections() {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.remove('collapsed');
+  });
+  updateProgress();
+}
+
+function collapseAllSections() {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.add('collapsed');
+  });
+  updateProgress();
+  
+  // Scroll to top on mobile
+  if (isMobile) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+// Search functionality with mobile optimization
+const searchInput = document.getElementById('searchInput');
+let searchTimeout;
+
+searchInput.addEventListener('input', function() {
+  clearTimeout(searchTimeout);
+  const delay = isMobile ? 400 : 300;
+  
+  searchTimeout = setTimeout(() => {
+    const query = this.value.toLowerCase().trim();
+    const sections = document.querySelectorAll('.sectionbox');
+    let firstMatch = null;
+    
+    sections.forEach(section => {
+      section.classList.remove('highlight');
+      
+      if (query === '') {
+        section.style.display = '';
+        return;
+      }
+      
+      const text = section.textContent.toLowerCase();
+      if (text.includes(query)) {
+        section.style.display = '';
+        section.classList.add('highlight');
+        section.classList.remove('collapsed');
+        if (!firstMatch) firstMatch = section;
+      } else {
+        section.style.display = 'none';
+      }
+    });
+    
+    // Scroll to first match on mobile
+    if (isMobile && firstMatch && query !== '') {
+      setTimeout(() => {
+        firstMatch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+    
+    updateProgress();
+  }, delay);
+});
+
+// Clear search when user taps outside search box (mobile)
+if (isMobile) {
+  document.addEventListener('touchstart', function(e) {
+    if (!searchInput.contains(e.target) && searchInput.value === '') {
+      searchInput.blur();
+    }
+  });
+}
+
+// Progress tracking
+function updateProgress() {
+  const sections = document.querySelectorAll('.sectionbox.collapsible');
+  const expanded = document.querySelectorAll('.sectionbox.collapsible:not(.collapsed)');
+  const percentage = (expanded.length / sections.length) * 100;
+  document.getElementById('progressBar').style.width = percentage + '%';
+}
+
+// Scroll progress indicator
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+  }, isMobile ? 50 : 0);
+}, { passive: true });
+
+// Initialize
+updateProgress();
+
+// Auto-collapse all sections on mobile for better initial experience
+if (isMobile) {
+  document.querySelectorAll('.sectionbox.collapsible').forEach(section => {
+    section.classList.add('collapsed');
+  });
+  updateProgress();
+}
+
+// Keyboard shortcuts (desktop only)
+if (!isMobile) {
+  document.addEventListener('keydown', function(e) {
+    // Ctrl/Cmd + K for search
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      searchInput.focus();
+    }
+    
+    // Ctrl/Cmd + D for dark mode
+    if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+      e.preventDefault();
+      toggleTheme();
+    }
+  });
+}
+
+// Add smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Add haptic feedback on iOS for section toggles
+if ('vibrate' in navigator && isMobile) {
+  document.querySelectorAll('.sectionbox.collapsible > h2').forEach(header => {
+    header.addEventListener('click', function() {
+      navigator.vibrate(10);
+    });
+  });
+}
+
+// Improve performance on low-end mobile devices
+if (isMobile) {
+  if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+    document.documentElement.style.setProperty('--transition-fast', '0ms');
+    document.documentElement.style.setProperty('--transition-normal', '0ms');
+    document.documentElement.style.setProperty('--transition-slow', '0ms');
+  }
+}
+</script>
+
+</body>
+</html>
